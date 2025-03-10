@@ -19,8 +19,13 @@ public class ResourceManager : MonoBehaviour
     public TMP_Text sacrificedText;
     public int sacrificeGoal;
 
+    // Awake is called before Start
     private void Awake() 
     {
+    /* instance' value is this (this refers to the current script/class)
+       This instance allows other scripts to reference to things in this script(functions, variables, etc.)
+       Refer to the class (Resource Manager) then the instance [ResourceManager.instance]
+    */
         instance = this;
     }
 
@@ -36,6 +41,7 @@ public class ResourceManager : MonoBehaviour
         
     }
 
+    // AddResource stores new resources taken from the workers
     public void AddResource(string resourceType, int amount) 
     {
         if (resourceType == "Wood") {
@@ -52,11 +58,13 @@ public class ResourceManager : MonoBehaviour
         }
     }
 
+    // AddSacrificedWorker stores new workers sacrificed into the blood altar
     public void AddSacrificedWorker()
     {
         numberOfWorkersSacrificed++;
         sacrificedText.text = numberOfWorkersSacrificed + " / " + sacrificeGoal;
 
+        // detects when the workers sacrificed is equal to the sacrifice
         if (numberOfWorkersSacrificed >= sacrificeGoal) {
             print("You win!");
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

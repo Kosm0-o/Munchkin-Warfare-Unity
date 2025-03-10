@@ -27,19 +27,22 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    // GetRandomPosition returns a random Vector3 pos
     Vector3 GetRandomPosition() 
     {
         Vector3 randomPos = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), 0);
         return randomPos;
     }
-
+    //OnTriggerEnter2D detects collisions between the Enemy and other specified game objects
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Altar") {
+            // restart original scene
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
         if (collision.tag == "Trap") {
+            //Instantiate blood, destroy trap/enemy
             Destroy(collision.gameObject);
             Instantiate(bloodPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);

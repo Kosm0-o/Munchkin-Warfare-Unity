@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
 
+    // spawnPoints array is similar to variable but multiple inputs in Unity Engine
     public Transform[] spawnPoints;
     public GameObject enemyPrefab;
     public float timeBetweenSpawns;

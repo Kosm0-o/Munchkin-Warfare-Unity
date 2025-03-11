@@ -40,15 +40,20 @@ public class Worker : MonoBehaviour
                 ResourceManager.instance.AddSacrificedWorker();
                 Destroy(gameObject);
             }
-
+            
+            // Creates an OverlapCircle(central point, radius, layer) to detect "collisions" with the sprite withholding the script
             Collider2D col = Physics2D.OverlapCircle(transform.position, collectDistance, resourceLayer);
+            // if there is a collision and there is no resource currently being collected
             if (col != null && currentResource == null) {
+                // currentResource's value is set to the resource that is in the OverlapCircle (col)
                 currentResource = col.GetComponent<Resource>(); 
             } else {
+                // if there is no collision or a current resource, currentResource is set to null to create a loop via the Update function
                 currentResource = null;
             }
-
+            // detects if there is a currentResource (runs after above if/else statement so that currentResource has a chance to store a value)
             if (currentResource != null) {
+                // checks if the time of the game is greater than the next time to collect resources
                 if (Time.time > nextCollectTime) {
                     Instantiate(resourcePopup, transform.position, Quaternion.identity);
                     nextCollectTime = Time.time + timeBetweenCollect;
@@ -64,7 +69,8 @@ public class Worker : MonoBehaviour
     {
         isSelected = true;
     }
-
+    
+    // OnMouseUp is called when mouse is not pressed or held (usually after a click/press/hold of the mouse)
     private void OnMouseUp()
     {
         isSelected = false;

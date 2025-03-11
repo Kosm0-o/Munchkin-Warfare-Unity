@@ -23,6 +23,7 @@ public class ShopManager : MonoBehaviour
         
     }
 
+    // onShopClick is a button function that runs when a shop button is clicked
     public void onShopClick(string item) 
     {   
         if (item == "worker") {

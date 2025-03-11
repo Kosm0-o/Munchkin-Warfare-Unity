@@ -42,7 +42,12 @@ public class Enemy : MonoBehaviour
         }
 
         if (collision.tag == "Trap") {
-            //Instantiate blood, destroy trap/enemy
+            // Instantiate blood, destroy trap/enemy
+            /* 
+            Make sure to instantiate/destroy other sprites before destorying the sprite attached to a script
+            (in this case the enemy), otherwise when the sprite is destroyed, the script is destroyed so nothing 
+            else gets instantiated or destroyed.
+            */
             Destroy(collision.gameObject);
             Instantiate(bloodPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);

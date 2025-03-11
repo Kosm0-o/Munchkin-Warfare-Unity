@@ -6,6 +6,7 @@ public class Worker : MonoBehaviour
 {
 
     bool isSelected;
+    // LayerMask variables can be set to certain layers (for filtering and stuff)
     public LayerMask resourceLayer;
     public float collectDistance;
     Resource currentResource;
@@ -21,6 +22,7 @@ public class Worker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Good use of tags: 
         bloodAltar = GameObject.FindGameObjectWithTag("Altar");
     }
 
@@ -57,6 +59,7 @@ public class Worker : MonoBehaviour
         }
     } 
 
+    // OnMouseDown is called when mouse is pressed/held
     private void OnMouseDown() 
     {
         isSelected = true;

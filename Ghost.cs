@@ -16,6 +16,7 @@ public class Ghost : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Follow the mouse cursor
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0;
 

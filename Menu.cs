@@ -21,8 +21,16 @@ public class Menu : MonoBehaviour
     public void onMenuClick(string button, string scene) 
     {
       if (button == "Play") {
-          SceneManager.LoadScene(scene);
+          SceneManager.LoadScene("Main Game");
       } 
+      if (button == "Instructions") {
+      }
+      
+      if (button == "Credits") {
+      } 
+      if (button == "Exit") {
+          
+      }
       
     }
 

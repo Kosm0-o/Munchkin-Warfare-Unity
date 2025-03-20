@@ -5,20 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-`   int value = 0;
-    public Transform[] children;
-    public GameObject[] childrenObj;
   
     // Start is called before the first frame update
     void Start()
     {
-      children = GetComponentInChildren<Transform>();
-      childrenObj = new GameObject[children.length];
-
-      foreach(Transform t in children) {
-        value++;
-        childrenObj.SetValue(t.gameObject, value - 1);
-      }
+      
     }
 
     // Update is called once per frame
@@ -38,11 +29,11 @@ public class Menu : MonoBehaviour
           SceneManager.LoadScene("Main Game");
       } 
       if (button == "Instructions") {
-      
+          SceneManager.LoadScene("Instructions");
       }
       
       if (button == "Credits") {
-      
+          SceneManager.LoadScene("Credits");
       } 
       if (button == "Exit") {
           Application.Quit();

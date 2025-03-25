@@ -12,11 +12,13 @@ public class Levels : MonoBehaviour
     Level 1: Intro (Basic Mechanics, Slow Enemies)
     Level 2: Enemy Upgrade (A Little Bit Faster Normal Enemies, New Slow/Fat Enemies with More Health)
     Level 3: Enemy Upgrade (Normal Enemies are Really Fast)
-    Level 4: Difficulty Upgrade (Big Time Goal Leap/Sacrifice Goal Leap
-    Level 5: Insane 
+    Level 4: Difficulty Upgrade (Big Time Goal Leap/Sacrifice Goal Leap)
+    Level 5: Insane (Max speed normal enemies, max health tank enemies, new rare enemy reviver enemy)
     */
-    public int[] survivalTime = new int[] {120, 240, 480, 1250};
-    public int[] sacrificeGoal = new int[] {10, 25, 45, 55, 100};
+    private int[] survivalTime = new int[] {120, 240, 480, 1250};
+    private int[] sacrificeGoal = new int[] {10, 25, 45, 55, 100};
+
+    private string levelType;
 
 
     private void Awake()
@@ -40,18 +42,18 @@ public class Levels : MonoBehaviour
         } 
         else if (levelType == sacrifice) {
             if () {
-            
+                
             }
         }
     }
 
-    private string LevelTypeChecker() 
+    private void onGameModeClick(string gameMode) 
     {
-        if ()
+        levelType = gameMode;
     }
 
     private void levelUp() {
-    
+        
     }
     
 }
